@@ -1,10 +1,18 @@
+PATH
+  remote: .
+  specs:
+    spartan (0.0.1)
+      rcodetools (~> 0.8)
+
 GEM
   remote: http://rubygems.org/
   specs:
+    rcodetools (0.8.5.0)
     test-construct (1.2.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  test-construct
+  spartan!
+  test-construct (~> 1.2)

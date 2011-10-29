@@ -1,0 +1,3 @@
+module Spartan
+  # Your code goes here...
+end
