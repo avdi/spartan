@@ -57,10 +57,10 @@ namespace "spartan" do
           while line = example.gets
             if state == :comment && line =~ /^\s/
               state = :code
-              readme.puts "```"
+              readme.puts "\n```ruby"
             elsif state == :code && line =~ /^\# /
               state = :comment
-              readme.puts "```"
+              readme.puts "```\n"
             end
             readme.puts line.sub(/^#\s*/, "") 
           end
