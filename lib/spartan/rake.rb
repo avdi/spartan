@@ -57,7 +57,7 @@ namespace "spartan" do
           while line = example.gets
             if state == :comment && line =~ /^\s/
               state = :code
-              readme.puts "``` ruby"
+              readme.puts "```ruby"
             elsif state == :code && line =~ /^\# /
               state = :comment
               readme.puts "```"
