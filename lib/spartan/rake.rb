@@ -66,7 +66,7 @@ namespace "spartan" do
             elsif state == :blank && line =~ /^\# /
               readme.puts
               state = :comment
-            elsif [:code, :output].include?(state) && line =~ /^ \# /
+            elsif [:code, :output].include?(state) && line =~ /^\# /
               state = :comment
               readme.puts "```"
             end
