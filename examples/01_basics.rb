@@ -14,7 +14,7 @@ puts "Hello, world"             # => nil
 
 # Spartan files are annotated in xmp format. xmp annotations are
 # special comments that follow lines of code. They consist of a pound
-# symbol followed by a space and a hashrocket: =>
+# symbol followed by a space and a hashrocket:
 
 "natraps".reverse               # => "spartan"
 

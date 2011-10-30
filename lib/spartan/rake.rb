@@ -55,14 +55,16 @@ namespace "spartan" do
         open(example_path, 'r') do |example|
           state = :comment
           while line = example.gets
-            if state == :comment && line =~ /^\s/
+            if [:comment,:blank].include?(state) && line =~ /^\s*$/
+              state = :blank
+            elsif [:comment,:blank].include?(state) && line =~ /^\s*[^\s#]/
               state = :code
               readme.puts "\n```ruby"
             elsif state == :code && line =~ /^\# /
               state = :comment
-              readme.puts "```\n"
+              readme.puts "```"
             end
-            readme.puts line.sub(/^#\s*/, "") 
+            readme.puts line.sub(/^#\s*/, "") unless state == :blank
           end
         end
       end
