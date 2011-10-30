@@ -54,5 +54,8 @@ puts "This is STDOUT"
 # failed. The failure report is simply the textual diff between your
 # expected outputs and reality.
 
+# Hey, remember when I said the output would be inserted at the end of
+# the file? Well, here it is:
+
 # >> Hello, world
 # >> This is STDOUT

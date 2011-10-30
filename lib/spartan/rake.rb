@@ -60,11 +60,20 @@ namespace "spartan" do
             elsif [:comment,:blank].include?(state) && line =~ /^\s*[^\s#]/
               state = :code
               readme.puts "\n```ruby"
-            elsif state == :code && line =~ /^\# /
+            elsif [:blank, :comment, :code].include?(state) && line =~ /^\# >>/
+              state = :output
+              readme.puts "\n```"
+            elsif state == :blank && line =~ /^\# /
+              readme.puts
+              state = :comment
+            elsif [:code, :output].include?(state) && line =~ /^ \# /
               state = :comment
               readme.puts "```"
             end
             readme.puts line.sub(/^#\s*/, "") unless state == :blank
+          end
+          if state == :output
+            readme.puts "```"
           end
         end
       end
