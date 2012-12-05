@@ -1,6 +1,16 @@
 #!/usr/bin/env ruby
 
+require "optparse"
 require_relative '../lib/spartan'
 
 include Spartan
-verify_file(ARGV[0])
+
+options = {}
+
+OptionParser.new do |opts|
+  opts.on "--[no-]color", "colorize output" do |value|
+    options[:colorize] = value
+  end
+end.parse!
+
+verify_file(ARGV[0], options)

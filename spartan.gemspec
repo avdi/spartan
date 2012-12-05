@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "rcodetools", "~> 0.8"
+  s.add_dependency "rainbow", "~> 1.1"
 
 end
