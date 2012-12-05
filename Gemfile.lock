@@ -2,11 +2,13 @@ PATH
   remote: .
   specs:
     spartan (0.0.1)
+      rainbow (~> 1.1)
       rcodetools (~> 0.8)
 
 GEM
   remote: http://rubygems.org/
   specs:
+    rainbow (1.1.4)
     rcodetools (0.8.5.0)
     test-construct (1.2.0)
 
