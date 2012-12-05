@@ -1,12 +1,16 @@
 require 'bundler'
+require_relative '../spartan'
+
 Bundler.setup
 Bundler::GemHelper.install_tasks(name: "spartan")
 
 namespace "spartan" do
+  include Spartan
+
   def project_root
     Dir.pwd
   end
-  
+
   def examples_dir(project_root)
     Pathname(project_root) + 'examples'
   end
@@ -17,31 +21,6 @@ namespace "spartan" do
 
   def lib_path
     Pathname(project_root) + "lib"
-  end
-
-  def verify_file(file_path)
-    require 'English'
-    require 'rcodetools/xmpfilter'
-    require 'rcodetools/options'
-    include Rcodetools
-    example_file = file_path
-    example_code = File.read(example_file)
-    xmp_options = {
-      include_paths: [lib_path]
-    }
-    output = ::XMPFilter.run(example_code,xmp_options)
-    diff   = IO.popen("diff -u #{example_file} -", "r+")
-    diff.write(output)
-    diff.close_write
-    results = diff.read
-    diff.close_read
-    if $CHILD_STATUS.success?
-      puts "Green!"
-      exit 0
-    else
-      puts results
-      exit 1
-    end
   end
 
   task "load_path" do
@@ -83,7 +62,7 @@ namespace "spartan" do
   desc "Run the tests"
   task "test" => %w[load_path] do
     example_files(Dir.pwd).each do |file|
-      verify_file(file.to_s)
+      verify_file(file.to_s, xmp_options: { include_paths: [lib_path] })
     end
   end
 end
