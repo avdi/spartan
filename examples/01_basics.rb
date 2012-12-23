@@ -1,4 +1,4 @@
-# # Spartans, prepare for glory!
+# # Spartans! What is your profession?
 #
 # Spartan tests are ordinary Ruby code samples.
 
@@ -39,7 +39,7 @@ puts "This is STDOUT"
 #
 # xmpfilter will replace the "5" with a "4".
 
-2 + 2 # => 5
+2 + 2 # => 4
 
 # It's this last property of xmpfilter which makes Spartan
 # possible. When writing Spartan tests, you write xmp-annotated Ruby

@@ -6,11 +6,13 @@ Gem::Specification.new do |s|
   s.name        = "spartan"
   s.version     = Spartan::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
+  s.authors     = ["Avdi Grimm"]
+  s.email       = ["avdi@avdi.org"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{Butt-naked Ruby testing}
+  s.description = <<END
+Write tests as plain Ruby examples. Generate Markdown documentation from your tests.
+END
 
   s.rubyforge_project = "spartan"
 
@@ -21,4 +23,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rcodetools", "~> 0.8"
 
+  s.add_development_dependency "ruby-debug19"
+  s.add_development_dependency "test-construct", "~> 1.2"
 end

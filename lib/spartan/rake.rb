@@ -1,7 +1,3 @@
-require 'bundler'
-Bundler.setup
-Bundler::GemHelper.install_tasks(name: "spartan")
-
 namespace "spartan" do
   def project_root
     Dir.pwd
@@ -27,7 +23,7 @@ namespace "spartan" do
     example_file = file_path
     example_code = File.read(example_file)
     xmp_options = {
-      include_paths: [lib_path]
+      include_paths: [$LOAD_PATH]
     }
     output = ::XMPFilter.run(example_code,xmp_options)
     diff   = IO.popen("diff -u #{example_file} -", "r+")
